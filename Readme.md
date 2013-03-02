@@ -2,6 +2,10 @@
 
 Geocoder is a simple .NET library which utilizes Google's Geolocation API to geocode street addresses.
 
+# Installation via NuGet
+
+    Install-Package Geocoder
+
 # Example (C#)
 
     var geocoder = new Geocoder.GeocodeService();
