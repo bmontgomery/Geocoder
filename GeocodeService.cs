@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Net;
+using System.Globalization;
 
 namespace Geocoder {
   public class GeocodeService {
@@ -21,8 +22,8 @@ namespace Geocoder {
       xmlDoc.LoadXml(xmlString);
 
       var loc = new Location();
-      loc.Latitude = Double.Parse(xmlDoc.SelectSingleNode("//geometry/location/lat").InnerText);
-      loc.Longitude = double.Parse(xmlDoc.SelectSingleNode("//geometry/location/lng").InnerText);
+      loc.Latitude = Double.Parse(xmlDoc.SelectSingleNode("//geometry/location/lat").InnerText, NumberFormatInfo.InvariantInfo);
+      loc.Longitude = double.Parse(xmlDoc.SelectSingleNode("//geometry/location/lng").InnerText, NumberFormatInfo.InvariantInfo);
 
       return loc;
     }
